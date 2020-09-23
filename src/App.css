@@ -2,7 +2,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 80%;
   margin: auto;
   justify-content: center;
   align-items: center;
@@ -14,10 +14,27 @@
   flex-direction: column;
 }
 .formBarcode > label{
-  font-size: 25px;
+  font-size: 27px;
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .formBarcode > input{
   margin-bottom: 20px;
 }
+
+
+.barcode-container{
+  display: flex;
+  align-items: center;
+}
+
+.code-name-container{
+  display: flex;
+  justify-content: space-between;
+}
+  .code-name-container > h1{
+    margin-right: 8px;
+    margin-left: 8px;
+    font-size: 55px;
+  }
