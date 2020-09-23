@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState }  from 'react';
+import * as JsBarcode from 'jsbarcode'
+
 import './App.css';
 
 function App() {
+
+    const [code, setCode] = useState("........");
+
+  useEffect(() => {
+    JsBarcode("#barcode", code);
+  },[code]);
+
+  const updateCode = e => {
+    
+    if (e.target.value!=="") {
+      setCode(e.target.value)
+    }else{
+      setCode("........")
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form className="formBarcode">
+        <label>
+          BARCODE GENERATOR
+        </label>
+        <input type="text" placeholder="Enter code to generate" onChange={updateCode}/>
+      </form>
+
+      <svg id="barcode"></svg>
     </div>
   );
 }
