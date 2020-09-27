@@ -1,20 +1,22 @@
-import React, { useEffect, useState }  from 'react';
-import * as JsBarcode from 'jsbarcode'
+import React, {useState }  from 'react';
 import $ from 'jquery'
 import * as html2canvas from 'html2canvas'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Button from 'react-bootstrap/Button';
+
+//Components
+import Label from './components/Label'
+import Barcode from './components/Barcode'
 
 import './App.css';
 
 function App() {
 
-    const [code, setCode] = useState("........");
+    const [code, setCode] = useState("XXXXXX");
+    const [labelType, setLabelType] = useState("zonea");
 
-  useEffect(() => {
-    JsBarcode("#barcode", code, {
-      height: 80,
-      displayValue:false
-    });
-  },[code]);
+  
   
 
   const updateCode = e => {
@@ -42,24 +44,33 @@ function App() {
         });
   }
 
+  var handleLabelType = (event) =>{
+    setLabelType(event.target.value)
+  }
+
   return (
     <div className="App">
       <form className="formBarcode">
-        <label>BARCODE GENERATOR</label>
+        <label className="main-title">BARCODE GENERATOR</label>
         <input type="text" placeholder="Enter code to generate" onChange={updateCode}/>
-      </form>
-      <div id="printableArea" className="barcode-container">
-        <div className="code-name-container">
-            <h1>{code.substring(0, 2)}</h1>
-            <h1>{code.substring(2, 4)}</h1>
-            <h1>{code.substring(4, 6)}</h1>
-        </div>
-        <svg  id="barcode"></svg>
-      </div>
 
-      <input type="button" onClick={()=> printDiv('printableArea')} value="Print barcode"/>
-      <div id="GFG"></div>
-      
+        <label className="title-labeltype">
+          Label tipe:
+          <select value={labelType} onChange={handleLabelType}>
+            <option value="zonea">Zone A/B/C</option>
+            <option value="zonef">Zone F-G</option>
+            <option value="cart">Cart Label</option>
+          </select>
+        </label>
+      </form>
+
+
+      <div id="printableArea" className="barcode-container">
+            <Label type={labelType} code={code}/>
+            <Barcode type={labelType} code={code}/>
+      </div>
+    
+      <Button variant="primary" size="lg" onClick={()=> printDiv('printableArea')}>Print barcode</Button>{' '}
     </div>
   );
 }
