@@ -52,10 +52,10 @@ function App() {
     <div className="App">
       <form className="formBarcode">
         <label className="main-title">BARCODE GENERATOR</label>
-        <input type="text" placeholder="Enter code to generate" onChange={updateCode}/>
+        <input type="text" placeholder="Enter location code" onChange={updateCode}/>
 
         <label className="title-labeltype mx-auto my-4">
-          Label tipe:
+          Label type:
           <select className="ml-2" value={labelType} onChange={handleLabelType}>
             <option value="zonea">Zone A/B/C/D</option>
             <option value="zonef">Zone F-G</option>

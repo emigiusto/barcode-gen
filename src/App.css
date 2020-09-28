@@ -26,10 +26,13 @@ body{
 }
 
 .formBarcode > label.title-labeltype{
-  font-size: 17px;
+  font-size: 20px;
   margin-bottom: 20px;
- 
 }
+    .title-labeltype > select {
+      padding: 4px;
+    }
+
 
 .formBarcode > input{
   margin-bottom: 20px;
@@ -81,6 +84,7 @@ body{
     margin-top: 60px;
   }
 
+ 
   @page {
     margin:0cm;
   }
