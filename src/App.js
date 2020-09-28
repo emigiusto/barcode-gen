@@ -54,12 +54,12 @@ function App() {
         <label className="main-title">BARCODE GENERATOR</label>
         <input type="text" placeholder="Enter code to generate" onChange={updateCode}/>
 
-        <label className="title-labeltype">
+        <label className="title-labeltype mx-auto my-4">
           Label tipe:
-          <select value={labelType} onChange={handleLabelType}>
-            <option value="zonea">Zone A/B/C</option>
+          <select className="ml-2" value={labelType} onChange={handleLabelType}>
+            <option value="zonea">Zone A/B/C/D</option>
             <option value="zonef">Zone F-G</option>
-            <option value="cart">Cart Label</option>
+            <option value="cart">Cart</option>
           </select>
         </label>
       </form>
@@ -70,7 +70,9 @@ function App() {
             <Barcode type={labelType} code={code}/>
       </div>
     
-      <Button variant="primary" size="lg" onClick={()=> printDiv('printableArea')}>Print barcode</Button>{' '}
+      <Button className="mx-auto my-4" variant="primary" size="lg" onClick={()=> printDiv('printableArea')}>Print barcode</Button>{' '}
+    
+      <h2 className="madeby">Made by Emiliano Giusto</h2>
     </div>
   );
 }

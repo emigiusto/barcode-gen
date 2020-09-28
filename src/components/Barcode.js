@@ -4,18 +4,17 @@ import * as JsBarcode from 'jsbarcode'
 function Barcode({type, code}) {
 
     useEffect(() => {
-        console.log("running useeffect")
         switch (type) {
             case 'zonea':
                 JsBarcode("#barcode", code, {
-                    height: 90,
+                    height: 100,
                     displayValue:false
                   });
             break;
      
              case 'zonef':
                 JsBarcode("#barcode", code, {
-                    height: 60,
+                    height: 80,
                     displayValue:false
                   });
                 break;
@@ -34,7 +33,7 @@ function Barcode({type, code}) {
 
 
     return (                    
-        <svg id="barcode"></svg>
+        <svg id="barcode" className="mr-4"></svg>
     )
     
 }

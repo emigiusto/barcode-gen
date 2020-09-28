@@ -5,7 +5,7 @@ function Label({type, code}) {
    switch (type) {
        case 'zonea':
             return (
-                <div className="code-name-container big-label">
+                <div className="code-name-container big-label ml-4">
                     <h1>{code.substring(0, 2)}</h1>
                     <h1>{code.substring(2, 4)}</h1>
                     <h1>{code.substring(4, 6)}</h1>
@@ -14,7 +14,7 @@ function Label({type, code}) {
 
         case 'zonef':
             return (
-                <div className="code-name-container small-label">
+                <div className="code-name-container small-label ml-4">
                     <h1>{code.substring(0, 2)}</h1>
                     <h1>{code.substring(2, 4)}</h1>
                     <h1>{code.substring(4, 6)}</h1>
@@ -23,7 +23,7 @@ function Label({type, code}) {
 
         case 'cart':
                 return (
-                    <div className="code-name-container big-label">
+                    <div className="code-name-container small-label ml-4">
                         <h1>CELL {code}</h1>
                     </div>
                 );

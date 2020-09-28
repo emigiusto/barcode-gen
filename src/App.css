@@ -1,3 +1,7 @@
+body{
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  height: 100vh;
+}
 .App {
   text-align: center;
   display: flex;
@@ -7,16 +11,20 @@
   justify-content: center;
   align-items: center;
   padding: 30px;
+
+}
+
+.main-title{
+  font-size: 45px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
 .formBarcode{
   display: flex;
   flex-direction: column;
 }
-.main-title{
-  font-size: 45px;
-  font-weight: 600;
-}
+
 .formBarcode > label.title-labeltype{
   font-size: 17px;
   margin-bottom: 20px;
@@ -25,12 +33,28 @@
 
 .formBarcode > input{
   margin-bottom: 20px;
+  font-size: 24px;
+  padding: 8px;
+  border: 1px solid grey;
+  text-align: center;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 
 .barcode-container{
   display: flex;
   align-items: center;
+  border: 1px solid grey;
+  -webkit-box-shadow: 4px 9px 13px -4px rgba(219,216,219,1);
+  -moz-box-shadow: 4px 9px 13px -4px rgba(219,216,219,1);
+  box-shadow: 4px 9px 13px -4px rgba(219,216,219,1);
+  border-radius: 8px 8px 8px 8px;
+  -moz-border-radius: 8px 8px 8px 8px;
+  -webkit-border-radius: 8px 8px 8px 8px;
+  background-color: white;
 }
 
 .code-name-container{
@@ -38,18 +62,24 @@
   justify-content: space-between;
 }
   .code-name-container > h1{
-    margin-right: 8px;
-    margin-left: 8px;
-    padding-bottom: 6px;
+    margin-right: 14px;
+    margin-left:14px;
   }
+
 
   .small-label >h1{
-    font-size: 35px !important;
+    font-size: 80px !important;
   }
   .big-label > h1{
-    font-size: 55px !important;
+    font-size: 120px !important;
   }
 
+  .madeby{
+    font-size: 16px;
+    margin: auto;
+    text-align: center;
+    margin-top: 60px;
+  }
 
   @page {
     margin:0cm;
