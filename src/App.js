@@ -27,7 +27,22 @@ function App() {
     }
   };
 
-  var printDiv = (divName) =>{
+  var printDiv = (divName, labelType) =>{
+    var finalWidth;
+    switch (labelType) {
+      case 'zonea':
+          finalWidth = 680
+        break;
+
+      case 'zonef':
+          finalWidth = 400
+        break;
+    
+      default:
+          finalWidth = 680
+        break;
+    }
+    
 
     var w = 1000;
     var h = 1000;
@@ -44,11 +59,11 @@ function App() {
         var tmp = window.open("");  
         
         $(tmp.document.body)
-        .html("<img src=" + myImage + " alt=''>")
+        .html("<img src=" + myImage + " alt='' style=width:"+ finalWidth +"px>")
         .ready(function () {
             tmp.focus();
             tmp.print();
-            tmp.close();
+            //tmp.close();
       })
     });
   }
@@ -57,7 +72,7 @@ function App() {
   var handleLabelType = (event) =>{
     setLabelType(event.target.value)
   }
-  
+
 
   return (
     <div className="App">
@@ -75,13 +90,15 @@ function App() {
         </label>
       </form>
 
-
-      <div id="printableArea" className="barcode-container">
-            <Label type={labelType} code={code}/>
-            <Barcode type={labelType} code={code}/>
+      <div className="border-div">
+          <div id="printableArea" className="barcode-container">
+                <Label type={labelType} code={code}/>
+                <Barcode type={labelType} code={code}/>
+          </div>
       </div>
+      
     
-      <Button className="mx-auto my-4" variant="primary" size="lg" onClick={()=> printDiv('printableArea')}>Print barcode</Button>{' '}
+      <Button className="mx-auto my-4" variant="primary" size="lg" onClick={()=> printDiv('printableArea',labelType)}>Print barcode</Button>{' '}
     
       <h2 className="madeby">Made by Emiliano Giusto</h2>
     </div>
