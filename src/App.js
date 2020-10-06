@@ -63,7 +63,7 @@ function App() {
         .ready(function () {
             tmp.focus();
             tmp.print();
-            //tmp.close();
+            tmp.close();
       })
     });
   }
