@@ -28,25 +28,36 @@ function App() {
   };
 
   var printDiv = (divName) =>{
-      var element = $("#" + divName)[0];
-        html2canvas(element).then(function (canvas) {
-          var myImage = canvas.toDataURL("image/png");
-          var tmp = window.open("");  
-          
-          $(tmp.document.body)
-          .html("<img src=" + myImage + " alt=''>")
-          .ready(function () {
-              tmp.focus();
-              tmp.print();
-              tmp.close();
-          })
-          
-        });
+
+    var w = 1000;
+    var h = 1000;
+    var div = document.querySelector('#' + divName);
+    var canvas = document.createElement('canvas');
+    canvas.width = w*2;
+    canvas.height = h*2;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    var context = canvas.getContext('2d');
+    context.scale(2,2);
+    html2canvas(div, { canvas: canvas }).then(function(canvas) {
+        var myImage = canvas.toDataURL("image/png");
+        var tmp = window.open("");  
+        
+        $(tmp.document.body)
+        .html("<img src=" + myImage + " alt=''>")
+        .ready(function () {
+            tmp.focus();
+            tmp.print();
+            tmp.close();
+      })
+    });
   }
+
 
   var handleLabelType = (event) =>{
     setLabelType(event.target.value)
   }
+  
 
   return (
     <div className="App">

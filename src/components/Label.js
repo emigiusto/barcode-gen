@@ -24,7 +24,7 @@ function Label({type, code}) {
         case 'cart':
                 return (
                     <div className="code-name-container small-label ml-4">
-                        <h1>CELL {code}</h1>
+                        <h1>{code}</h1>
                     </div>
                 );
    
